@@ -1,0 +1,37 @@
+{% include 'core/contactnavbarar.html' %}
+{% if messages %}
+   {% for message in messages %}
+	    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <script>alert("{{message}}")</script>
+      {% endif %}
+      {% endfor %}
+{% endif %}
+<div class="w3-container w3-light-grey" style="padding:128px 16px;" id="contact">
+  <h3 class="w3-center w3-xlarge"style="font-weight: bold">الاتصال</h3>
+  <p class="w3-center w3-xlarge">:يتيح لك التواصل. أرسل لنا رسالة</p>
+  <div style="margin-top:48px">
+    <p class = "w3-large"><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> القاهرة، مصر</p>
+    <p class = "w3-large"><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i>٠٢+ الهاتف XXX XXX XXX</p>
+    <p class = "w3-large"><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> البريد الإلكتروني: elqadylab@gmail.com</p>
+    <br>
+    <form method="post">
+      {% csrf_token %}
+      <p><input class="w3-input w3-border" type="text" placeholder="العنوان" required name="Subject"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="البريد الإلكتروني" required name="SendEmail"></p>
+      <p><textarea class="w3-input w3-border" type="text" placeholder="الرساله" required name="Message" style="height: 200px;"></textarea></p>
+      <input name = "email" id = "email" type="hidden" value="">
+      <p>
+        <button class="w3-button w3-black" type="submit" onclick="isEmail()">
+          <i class="fa fa-paper-plane"></i> ارسل رسالة
+        </button>
+      </p>
+    </form>
+  </div>
+</div>
+
+<script>
+  function isEmail(){
+    document.getElementById('email').value = "true";
+  }
+</script>
+{% include 'core/footerar.html' %}

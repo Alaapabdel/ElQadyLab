@@ -1,0 +1,38 @@
+{% include 'core/servicenavbarar.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		.image{
+				background-image:url("/media/{{service.serviceImage}}");
+			    background-blend-mode: lighten;
+				background-color: rgba(255,255,255,0.6);
+   	 			background-blend-mode: lighten;
+				background-size: cover;
+				background-repeat:repeat-y;
+				height:auto;
+				width:100%;
+				min-height:75vh;
+		}
+    </style>
+</head>
+<body>
+	<div style="padding:128px 16px" class="image">
+		<h3 class="w3-center w3-xlarge" id = "serviceHead" style="font-weight: bold">{{service.serviceTitleAR}}</h3>
+		<div  class="w3-center w3-xlarge" style="font-size: large;">
+		<p class="w3-center w3-large" id = "serviceBody">{{service.serviceBodyAR |linebreaks}}</p>
+		</div>
+	</div>
+	
+	<script>
+		function getServiceTitle() 
+		{
+			const box = document.getElementById('serviceHead');
+			var serTitle = box.textContent;
+			document.getElementById('serTitle').value = serTitle;
+			document.getElementById('serLang').value = "ar";
+		}
+	</script>
+</body>
+</html>
+{% include 'core/footerar.html' %}

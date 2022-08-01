@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="ISO-8859-1"> 
+<head>
+<title>معمل القاضي</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("/media/background.jpg");
+  min-height: 100%;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+</style>
+</head>
+<body>
+  <form method="POST">
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar" style="position: relative;min-height: 70px;margin-bottom: 20px; border: 8px solid transparent;">
+    <a href="{% url 'pages:indexar' %}"><img src="/media/logo.jpg" width="60" height="60"></a>
+    <button onclick="getServiceTitle()" type="submit" style="border: none;outline: none;background-color:white"><img src="/media/eg.jpg" width="20" height="15" ><span>|</span><img src="/media/uk.jpg" width="20" height="15"> تغيير اللغه </button>
+      {% csrf_token %}
+      <div class="w3-right w3-hide-small">
+        <input type="hidden" id="optionTitle"  name="optionTitle" value=""/>
+        <input type="hidden" id="langTitle"  name="langTitle" value=""/>
+        <input type="hidden" id="serTitle"  name="serTitle" value=""/>
+        <input type="hidden" id="serLang"  name="serLang" value=""/>
+        <button class="w3-bar-item w3-button" onclick="optionTitleSend(this.value)" value = "About+"  type="submit">عن المعمل</button>
+        <button class="w3-bar-item w3-button" onclick="optionTitleSend(this.value)" value = "Vision+" type="submit">الرؤيه</button>
+        <button class="w3-bar-item w3-button" onclick="optionTitleSend(this.value)" value = "Mission+" type="submit"></i>الرساله</button>
+        <a href="{% url 'pages:valuesar' %}" class="w3-bar-item w3-button">القيم</a>
+        <button class="w3-bar-item w3-button" onclick="optionTitleSend(this.value)" value = "Objectives+" type="submit">الأهداف</button>
+        <a href="{% url 'pages:contactusar' %}" class="w3-bar-item w3-button">الاتصال</a>
+    </div>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+{% csrf_token %}  
+<nav class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none;" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">اغلاق ×</a>
+  <button class="w3-bar-item w3-button" onclick="optionTitleSend(this.value)" value = "About+"  type="submit">عن المعمل</button>
+  <button class="w3-bar-item w3-button" onclick="optionTitleSend(this.value)" value = "Vision+" type="submit">الرؤيه</button>
+  <button class="w3-bar-item w3-button" onclick="optionTitleSend(this.value)" value = "Mission+" type="submit"></i>الرساله</button>
+  <a href="{% url 'pages:valuesar' %}" class="w3-bar-item w3-button">القيم</a>
+  <button class="w3-bar-item w3-button" onclick="optionTitleSend(this.value)" value = "Objectives+" type="submit">الأهداف</button>
+  <a href="{% url 'pages:contactusar' %}" class="w3-bar-item w3-button">الاتصال</a>
+</nav>
+</form>
+<script>
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+
+function optionTitleSend(optionTitle) {
+  document.getElementById('optionTitle').value = optionTitle;
+}
+</script>
+
+</body>
+</html>

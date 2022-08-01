@@ -1,0 +1,51 @@
+{% include 'core/valuesnavbarar.html' %}
+<style>
+    #circle {
+        background-image:url("/media/gray.jpg");
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        line-height: 30px;
+        text-align: center;
+        color: black;
+        font-weight:100; font-stretch:normal; 
+        font-size:30px;
+        font-style: bold;
+        float: left;
+    }
+</style>
+<div class="w3-container w3-light-grey" style="padding:128px 16px; min-height:75vh;" id="contact">
+    <div class="w3-center w3-large" style="font-size: large;">
+
+ <div class="w3-row-padding w3-grayscale" style="display: inline-block; text-align: center; align-self: center; align-content: center; align-items: center;"><br>
+
+    <h3 class="w3-center w3-xlarge" id = "optionHead" style="font-weight: bold">القيم</h3>
+<div><br>
+    <div id="circle" >
+        </br></br></br></br>الالتزام
+    </div>
+    <div id="circle">
+        </br></br></br></br>الأمانة
+    </div>
+    <div id="circle">
+        </br></br></br></br>المصداقية
+    </div>
+    <div id="circle">
+        </br></br></br></br>المشاركة
+    </div>
+    <div id="circle">
+        </br></br></br></br>الدقة
+    </div>
+</div>
+</div>
+</div>
+</div>
+<script>
+    function getTitle() 
+    {
+        const box = document.getElementById('optionHead');
+        var langTitle = box.textContent;
+        document.getElementById('langTitle').value = langTitle;
+    }
+</script>
+{% include 'core/footerar.html' %}
